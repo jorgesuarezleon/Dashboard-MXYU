@@ -66,7 +66,7 @@ input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.5) sepia(1) h
 .ering .bgc{fill:none;stroke:var(--s3);stroke-width:5}
 .ering .fgc{fill:none;stroke:var(--cya);stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset .6s ease}
 .ectr{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--cya)}
-main{padding:16px 30px 32px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+main{padding:16px 30px 32px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 .card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:18px;display:flex;flex-direction:column}
 .card.full{grid-column:1/-1}
 .chd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
@@ -140,14 +140,15 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
 .tab-btn:hover{color:#7899b5}
 .tab-btn.active{color:#e2e8f0;border-bottom-color:#f59e0b}
 .tab-panel{display:none}
-.tab-panel.active{display:block}
+main.tab-panel.active{display:grid}
+div
 /* ── Heatmap ── */
 .area-zone{position:absolute;border-radius:6px;cursor:pointer;transition:all .18s;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px;border:1px solid}
 .area-zone:hover{z-index:10;transform:scale(1.05);box-shadow:0 0 0 2px #f59e0b44}
 .az-name{font-size:10px;font-weight:700;color:inherit;line-height:1.2}
 .az-count{font-size:18px;font-weight:900;line-height:1.1}
 .az-label{font-size:9px;opacity:.8;line-height:1.1}
-.az-tip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#112032;border:1px solid #1c2e44;border-radius:8px;padding:8px 12px;font-size:11px;white-space:nowrap;z-index:30;min-width:160px;pointer-events:none}
+.az-tip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#0c1826;border:1.5px solid #f59e0b55;border-radius:10px;padding:12px 16px;font-size:12px;white-space:normal;z-index:50;min-width:200px;max-width:260px;box-shadow:0 4px 20px rgba(0,0,0,.5);line-height:1.6}
 .area-zone:hover .az-tip{display:block}
 /* ── Leaderboard ── */
 .lb-hero{background:#0c1826;border:1px solid #1c2e44;border-radius:10px;padding:16px;text-align:center;position:relative}
@@ -163,15 +164,15 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
 
 
 /* ── Podium ── */
-.podium-wrap{display:flex;align-items:flex-end;justify-content:center;gap:16px;padding:24px 16px 0;margin-bottom:8px}
+.podium-wrap{display:flex;align-items:flex-end;justify-content:center;gap:16px;padding:24px 16px 0;margin-bottom:8px;max-width:900px;margin-left:auto;margin-right:auto}
 .podium-col{display:flex;flex-direction:column;align-items:center;position:relative}
 .podium-col.p1{order:2}
 .podium-col.p2{order:1}
 .podium-col.p3{order:3}
 .podium-card{width:200px;background:#0c1826;border:1px solid #1c2e44;border-radius:12px 12px 0 0;padding:20px 16px 16px;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden}
-.podium-card.p1{width:220px;border-color:#f59e0b;box-shadow:0 0 0 1px #f59e0b44}
-.podium-card.p2{border-color:#94a3b8;opacity:.95}
-.podium-card.p3{border-color:#b47a3c;opacity:.9}
+.podium-card.p1{width:240px;border-color:#f59e0b;box-shadow:0 0 0 1px #f59e0b44}
+.podium-card.p2{width:215px;border-color:#94a3b8;opacity:.95}
+.podium-card.p3{width:215px;border-color:#b47a3c;opacity:.9}
 .podium-glow{position:absolute;top:0;left:0;right:0;height:3px}
 .podium-medal{font-size:32px;margin-bottom:4px;line-height:1}
 .podium-rank{position:absolute;top:10px;right:12px;font-size:11px;font-weight:700;color:var(--mu);opacity:.5}
@@ -182,17 +183,17 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
 .podium-area{font-size:11px;color:#4d647e;margin-bottom:10px}
 .podium-nivel{font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;border:1px solid;margin-bottom:10px;letter-spacing:.3px}
 .podium-stats{width:100%;display:flex;gap:8px;margin-bottom:10px}
-.podium-stat{flex:1;background:#112032;border-radius:6px;padding:6px 8px;text-align:center}
-.podium-stat-val{font-size:16px;font-weight:900;line-height:1}
+.podium-stat{flex:1;background:#112032;border-radius:6px;padding:8px 6px;text-align:center;min-width:0;overflow:hidden}
+.podium-stat-val{font-size:15px;font-weight:900;line-height:1;white-space:nowrap}
 .podium-card.p1 .podium-stat-val{font-size:18px}
 .podium-stat-lbl{font-size:9px;color:#4d647e;margin-top:2px;line-height:1.2}
 .podium-pbar{width:100%;height:5px;background:#1c2e44;border-radius:3px;overflow:hidden;margin-bottom:3px}
 .podium-pfill{height:100%;border-radius:3px;transition:width .5s}
 .podium-pct{font-size:11px;font-weight:700;text-align:center}
 .podium-base{height:0;border-radius:0 0 0 0}
-.podium-col.p1 .podium-base{height:56px;background:linear-gradient(180deg,#f59e0b22 0%,#05101d 100%);border:1px solid #f59e0b44;border-top:none;width:220px}
-.podium-col.p2 .podium-base{height:36px;background:linear-gradient(180deg,#94a3b822 0%,#05101d 100%);border:1px solid #94a3b844;border-top:none;width:200px}
-.podium-col.p3 .podium-base{height:20px;background:linear-gradient(180deg,#b47a3c22 0%,#05101d 100%);border:1px solid #b47a3c44;border-top:none;width:200px}
+.podium-col.p1 .podium-base{height:56px;background:linear-gradient(180deg,#f59e0b22 0%,#05101d 100%);border:1px solid #f59e0b44;border-top:none;width:240px}
+.podium-col.p2 .podium-base{height:36px;background:linear-gradient(180deg,#94a3b822 0%,#05101d 100%);border:1px solid #94a3b844;border-top:none;width:210px}
+.podium-col.p3 .podium-base{height:20px;background:linear-gradient(180deg,#b47a3c22 0%,#05101d 100%);border:1px solid #b47a3c44;border-top:none;width:210px}
 .podium-racha{font-size:10px;color:#4d647e;display:flex;align-items:center;gap:4px;justify-content:center;margin-top:6px}
 .podium-racha-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 
@@ -285,21 +286,22 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
     <div class="cw"><canvas id="c1"></canvas></div><div class="legend" id="leg1"></div>
   </div>
   <div class="card">
-    <div class="chd"><div><div class="ct">G2 · Reportes vs Target por Proceso BD</div>
-      <div class="cs">Barras reales vs target (suma col.F Liderazgo por col.D Área)</div>
+    <div class="chd">
+      <div><div class="ct">G2 · Reportes vs Target por Proceso BD</div>
+        <div class="cs">Barras reales vs target (suma col.F Liderazgo por col.D Área)</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span style="font-size:10px;color:var(--mu)">Target:</span>
+        <button id="btn-target-toggle" onclick="toggleTargetMode()"
+          style="display:flex;align-items:center;gap:5px;background:rgba(245,158,11,.1);
+                 border:1px solid rgba(245,158,11,.4);color:var(--acc);padding:4px 10px;
+                 border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;
+                 font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap"
+          title="Alternar entre target mensual completo y target proporcional a días transcurridos">
+          📅 Mensual completo
+        </button>
+      </div>
     </div>
-    <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
-      <span style="font-size:10px;color:var(--mu)">Target:</span>
-      <button id="btn-target-toggle" onclick="toggleTargetMode()"
-        style="display:flex;align-items:center;gap:5px;background:rgba(245,158,11,.1);
-               border:1px solid rgba(245,158,11,.4);color:var(--acc);padding:4px 10px;
-               border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;
-               font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap"
-        title="Alternar entre target mensual completo y target proporcional a días transcurridos">
-        📅 Mensual completo
-      </button>
-    </div>
-  </div>
     <div class="cw" style="min-height:260px"><canvas id="c2"></canvas></div>
   </div>
   <div class="card full">
@@ -339,7 +341,7 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
     <div id="heatmap-kpis" style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap"></div>
     <div style="display:grid;grid-template-columns:1fr 220px;gap:16px">
       <div>
-        <div id="floor-plan" style="position:relative;width:100%;height:380px;border:1px solid #1c2e44;border-radius:10px;background:#05101d;overflow:hidden"></div>
+        <div id="floor-plan" style="position:relative;width:100%;height:380px;border:1px solid #1c2e44;border-radius:10px;background:#05101d;overflow:visible"></div>
         <div id="heatmap-legend" style="display:flex;gap:18px;margin-top:10px;flex-wrap:wrap"></div>
       </div>
       <div id="heatmap-ranking" style="background:#0c1826;border:1px solid #1c2e44;border-radius:10px;padding:14px"></div>
@@ -354,8 +356,8 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
         <div class="cs">Ordenado por ADN Meli SHE · desempate por % cumplimiento · mismos filtros activos</div>
       </div>
     </div>
-    <div id="lb-kpis" style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap"></div>
-    <div id="lb-top3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px"></div>
+    <div id="lb-kpis" style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;justify-content:center;max-width:800px;margin-left:auto;margin-right:auto"></div>
+    <div id="lb-top3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;max-width:900px;margin-left:auto;margin-right:auto"></div>
     <div class="tbl-wrap">
       <table>
         <thead>
@@ -1653,9 +1655,18 @@ function renderHeatmap(data) {
     div.className='area-zone';
     div.style.cssText=`left:${z.l};top:${z.t};width:${z.w};height:${z.h};background:${col.bg};border-color:${col.border};color:${col.text}`;
     div.innerHTML=`<div class="az-tip">
-      <b style="color:#e2e8f0">${z.id}</b><br>
-      <span style="color:#7899b5">${n} registro${n!==1?'s':''} · ${n>=hiThr?'alta':n>=mdThr?'media':'baja'} concentración</span>
-      ${topCat?`<br><span style="color:#f59e0b">Top: ${topCat}</span>`:''}
+      <div style="font-weight:700;font-size:13px;color:#e2e8f0;margin-bottom:6px;border-bottom:1px solid #1c2e44;padding-bottom:6px">${z.id}</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <span style="font-size:18px;font-weight:900;color:${col.border}">${n}</span>
+        <span style="color:#7899b5;font-size:11px">registro${n!==1?'s':''} en el período</span>
+      </div>
+      <div style="font-size:11px;font-weight:700;color:${col.border};margin-bottom:${topCat?'6px':'0'}">
+        ${n>=hiThr?'🔴 Alta concentración':n>=mdThr?'🟡 Media concentración':n>0?'🟢 Baja concentración':'Sin registros'}
+      </div>
+      ${topCat?`<div style="font-size:11px;color:#94a3b8;border-top:1px solid #1c2e44;padding-top:6px;margin-top:2px">
+        <span style="color:#f59e0b;font-weight:600">Obs. más frecuente:</span><br>
+        <span style="color:#e2e8f0">${topCat.length>45?topCat.slice(0,45)+'…':topCat}</span>
+      </div>`:''}
     </div>
     <div class="az-name">${shortName}</div>
     ${n>0?`<div class="az-count">${n}</div><div class="az-label">registros</div>`:'<div class="az-label" style="opacity:.4">sin datos</div>'}`;
@@ -1801,7 +1812,7 @@ function renderLeaderboard(data) {
           </div>
           <div class="podium-stat">
             <div class="podium-stat-val" style="color:#e2e8f0">${r.cnt}</div>
-            <div class="podium-stat-lbl">registros</div>
+            <div class="podium-stat-lbl">total</div>
           </div>
         </div>
         <div class="podium-pbar"><div class="podium-pfill" style="width:${Math.min(r.cumPct,100)}%;background:${r.nc}"></div></div>
