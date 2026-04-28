@@ -133,6 +133,69 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
 .gs-badge.disconnected{background:rgba(77,100,126,.12);color:var(--mu2);border:1px solid var(--bd)}
 
 @media(max-width:1050px){main{grid-template-columns:1fr;padding:12px}.card.full{grid-column:1}.irow{padding:12px}header,.fbar{padding-left:14px;padding-right:14px}}
+
+/* ── Main navigation tabs ── */
+.tab-nav{display:flex;gap:0;background:#0c1826;border-bottom:1px solid #1c2e44;padding:0 20px;overflow-x:auto}
+.tab-btn{padding:11px 18px;font-size:12px;font-weight:600;color:#4d647e;background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s}
+.tab-btn:hover{color:#7899b5}
+.tab-btn.active{color:#e2e8f0;border-bottom-color:#f59e0b}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+/* ── Heatmap ── */
+.area-zone{position:absolute;border-radius:6px;cursor:pointer;transition:all .18s;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px;border:1px solid}
+.area-zone:hover{z-index:10;transform:scale(1.05);box-shadow:0 0 0 2px #f59e0b44}
+.az-name{font-size:10px;font-weight:700;color:inherit;line-height:1.2}
+.az-count{font-size:18px;font-weight:900;line-height:1.1}
+.az-label{font-size:9px;opacity:.8;line-height:1.1}
+.az-tip{display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#112032;border:1px solid #1c2e44;border-radius:8px;padding:8px 12px;font-size:11px;white-space:nowrap;z-index:30;min-width:160px;pointer-events:none}
+.area-zone:hover .az-tip{display:block}
+/* ── Leaderboard ── */
+.lb-hero{background:#0c1826;border:1px solid #1c2e44;border-radius:10px;padding:16px;text-align:center;position:relative}
+.lb-pos{position:absolute;top:10px;left:12px;font-size:18px}
+.lb-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin:0 auto 8px;border:2px solid}
+.lb-nm{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:2px}
+.lb-ar{font-size:11px;color:var(--mu);margin-bottom:8px}
+.lb-medal{font-size:10px;font-weight:700;padding:2px 9px;border-radius:4px;margin-bottom:8px;display:inline-block;border:1px solid}
+.lb-pbar{height:4px;background:#1c2e44;border-radius:2px;overflow:hidden;margin-bottom:3px}
+.lb-pfill{height:100%;border-radius:2px}
+.lb-pct{font-size:12px;font-weight:700}
+.lb-adn{font-size:11px;color:var(--mu);margin-top:5px}
+
+
+/* ── Podium ── */
+.podium-wrap{display:flex;align-items:flex-end;justify-content:center;gap:16px;padding:24px 16px 0;margin-bottom:8px}
+.podium-col{display:flex;flex-direction:column;align-items:center;position:relative}
+.podium-col.p1{order:2}
+.podium-col.p2{order:1}
+.podium-col.p3{order:3}
+.podium-card{width:200px;background:#0c1826;border:1px solid #1c2e44;border-radius:12px 12px 0 0;padding:20px 16px 16px;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden}
+.podium-card.p1{width:220px;border-color:#f59e0b;box-shadow:0 0 0 1px #f59e0b44}
+.podium-card.p2{border-color:#94a3b8;opacity:.95}
+.podium-card.p3{border-color:#b47a3c;opacity:.9}
+.podium-glow{position:absolute;top:0;left:0;right:0;height:3px}
+.podium-medal{font-size:32px;margin-bottom:4px;line-height:1}
+.podium-rank{position:absolute;top:10px;right:12px;font-size:11px;font-weight:700;color:var(--mu);opacity:.5}
+.podium-avatar{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:10px;border:2px solid;flex-shrink:0}
+.podium-card.p1 .podium-avatar{width:64px;height:64px;font-size:20px}
+.podium-name{font-size:13px;font-weight:700;color:#e2e8f0;text-align:center;margin-bottom:2px;line-height:1.3}
+.podium-card.p1 .podium-name{font-size:15px}
+.podium-area{font-size:11px;color:#4d647e;margin-bottom:10px}
+.podium-nivel{font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;border:1px solid;margin-bottom:10px;letter-spacing:.3px}
+.podium-stats{width:100%;display:flex;gap:8px;margin-bottom:10px}
+.podium-stat{flex:1;background:#112032;border-radius:6px;padding:6px 8px;text-align:center}
+.podium-stat-val{font-size:16px;font-weight:900;line-height:1}
+.podium-card.p1 .podium-stat-val{font-size:18px}
+.podium-stat-lbl{font-size:9px;color:#4d647e;margin-top:2px;line-height:1.2}
+.podium-pbar{width:100%;height:5px;background:#1c2e44;border-radius:3px;overflow:hidden;margin-bottom:3px}
+.podium-pfill{height:100%;border-radius:3px;transition:width .5s}
+.podium-pct{font-size:11px;font-weight:700;text-align:center}
+.podium-base{height:0;border-radius:0 0 0 0}
+.podium-col.p1 .podium-base{height:56px;background:linear-gradient(180deg,#f59e0b22 0%,#05101d 100%);border:1px solid #f59e0b44;border-top:none;width:220px}
+.podium-col.p2 .podium-base{height:36px;background:linear-gradient(180deg,#94a3b822 0%,#05101d 100%);border:1px solid #94a3b844;border-top:none;width:200px}
+.podium-col.p3 .podium-base{height:20px;background:linear-gradient(180deg,#b47a3c22 0%,#05101d 100%);border:1px solid #b47a3c44;border-top:none;width:200px}
+.podium-racha{font-size:10px;color:#4d647e;display:flex;align-items:center;gap:4px;justify-content:center;margin-top:6px}
+.podium-racha-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
 </style>
 </head>
 <body>
@@ -210,7 +273,13 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
     <div><div class="ic-v" id="k-eng">0%</div><div class="ic-l">% INTERVENCION</div><div class="ic-s" id="k-eng-s">— / — target</div></div>
   </div>
 </div>
-<main>
+<div class="tab-nav" id="tab-nav">
+  <button class="tab-btn active" onclick="switchMainTab('analytics',this)">📊 Análisis y cumplimiento</button>
+  <button class="tab-btn" onclick="switchMainTab('heatmap',this)">🌡 Mapa de calor del sitio</button>
+  <button class="tab-btn" onclick="switchMainTab('leaderboard',this)">🏆 Leaderboard ADN Meli SHE</button>
+</div>
+<main id="tab-analytics" class="tab-panel active">
+
   <div class="card">
     <div class="chd"><div><div class="ct">G1 · Actos vs Condiciones</div><div class="cs">Excluye "Otro" · íconos filtran todos los gráficos</div></div></div>
     <div class="cw"><canvas id="c1"></canvas></div><div class="legend" id="leg1"></div>
@@ -257,6 +326,56 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
       <input class="ainp" id="ne" placeholder="correo@empresa.com" style="flex:1.5">
       <input class="ainp" id="nt" type="number" min="1" max="999" placeholder="Target" style="width:76px;flex:none">
       <button class="badd" id="btn-add">＋ Agregar</button>
+    </div>
+  </div>
+
+</main>
+<main id="tab-heatmap" class="tab-panel" style="display:none">
+  <div class="card">
+    <div class="chd">
+      <div><div class="ct">Mapa de calor del sitio · MXYU01 Mérida</div>
+      <div class="cs">Intensidad por acumulado de registros en el período activo · layout simbólico</div></div>
+    </div>
+    <div id="heatmap-kpis" style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap"></div>
+    <div style="display:grid;grid-template-columns:1fr 220px;gap:16px">
+      <div>
+        <div id="floor-plan" style="position:relative;width:100%;height:380px;border:1px solid #1c2e44;border-radius:10px;background:#05101d;overflow:hidden"></div>
+        <div id="heatmap-legend" style="display:flex;gap:18px;margin-top:10px;flex-wrap:wrap"></div>
+      </div>
+      <div id="heatmap-ranking" style="background:#0c1826;border:1px solid #1c2e44;border-radius:10px;padding:14px"></div>
+    </div>
+  </div>
+</main>
+<main id="tab-leaderboard" class="tab-panel" style="display:none">
+  <div class="card">
+    <div class="chd">
+      <div>
+        <div class="ct">Leaderboard · ADN Meli SHE</div>
+        <div class="cs">Ordenado por ADN Meli SHE · desempate por % cumplimiento · mismos filtros activos</div>
+      </div>
+    </div>
+    <div id="lb-kpis" style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap"></div>
+    <div id="lb-top3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px"></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:36px;text-align:center">#</th>
+            <th>Líder</th>
+            <th>Proceso</th>
+            <th>Registros</th>
+            <th>Cumplimiento</th>
+            <th>ADN Meli SHE</th>
+            <th>Nivel</th>
+            <th style="width:90px">Racha</th>
+          </tr>
+        </thead>
+        <tbody id="lb-tbody"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:var(--mu);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <span>Actualizado con los datos del período activo en los filtros</span>
+      <span style="color:var(--acc)">Líderes sin proceso asignado no aparecen en el ranking</span>
     </div>
   </div>
 </main>
@@ -510,7 +629,7 @@ function rebuildF(forceReset){
   // Rebuild BD selector
   const sel=document.getElementById('f-bd'),cur=sel.value;
   while(sel.options.length>1)sel.remove(1);
-  uniq(ALL.map(d=>d.procesos)).forEach(v=>sel.add(new Option(v,v)));
+  uniq(ALL.map(d=>d.procesos)).filter(v=>v&&v!=='NO ENCONTRADO'&&v!=='Sin datos').forEach(v=>sel.add(new Option(v,v)));
   if([...sel.options].some(o=>o.value===cur))sel.value=cur;
 
   // Set date picker range limits from data
@@ -609,7 +728,7 @@ const TC={'Condición Insegura':'#ef4444','Acto Inseguro':'#f59e0b','Acto Seguro
 const PAL=['#f59e0b','#3b82f6','#10b981','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16','#f97316','#a78bfa'];
 const CC={'Práctica Segura Reconocida':'#10b981','Coaching Comportamiento':'#06b6d4','Retroalimentación Colaborador':'#3b82f6','Desorden y Almacenamiento':'#f59e0b','Riesgo de Caída o Corte':'#ef4444','Uso Inadecuado de Equipo':'#8b5cf6','Infraestructura Dañada':'#ec4899','Comportamiento de Riesgo':'#f97316'};
 const CI={'Práctica Segura Reconocida':'🏆','Coaching Comportamiento':'💬','Retroalimentación Colaborador':'📣','Desorden y Almacenamiento':'📦','Riesgo de Caída o Corte':'⚠️','Uso Inadecuado de Equipo':'🔧','Infraestructura Dañada':'🏗️','Comportamiento de Riesgo':'🚨'};
-const BDC={SHE:'#f59e0b',LP:'#3b82f6',OB:'#10b981',ICQA:'#8b5cf6','I.P':'#06b6d4',Training:'#ec4899','NO ENCONTRADO':'#4d647e'};
+const BDC={SHE:'#f59e0b',LP:'#3b82f6',OB:'#10b981',ICQA:'#8b5cf6','I.P':'#06b6d4',Training:'#ec4899'};
 const TT={backgroundColor:'#112032',borderColor:'#1c2e44',borderWidth:1,titleColor:'#e2e8f0',bodyColor:'#7899b5',padding:10};
 function cBy(arr,k){const m={};arr.forEach(d=>{const v=d[k]||'Sin datos';m[v]=(m[v]||0)+1;});return m;}
 function mk(id,type,data,opts){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type,data,options:{responsive:true,maintainAspectRatio:false,...opts}});}
@@ -735,7 +854,7 @@ function upC2(data){
   const bdTeff  = getTargetsEffective();     // target según modo activo
 
   const allBDs = [...new Set([...Object.keys(counts),...Object.keys(bdT)])]
-    .filter(k=>k!=='Sin datos').sort((a,b)=>(counts[b]||0)-(counts[a]||0));
+    .filter(k=>k!=='Sin datos'&&k!=='NO ENCONTRADO').sort((a,b)=>(counts[b]||0)-(counts[a]||0));
 
   const reportes   = allBDs.map(bd => counts[bd]  || 0);
   const targetsEff = allBDs.map(bd => bdTeff[bd]  || 0);
@@ -823,10 +942,22 @@ function upC2(data){
 
 // ══ G3 AI TABLE ═══════════════════════════════════════════════════════════
 function upG3(data){
+  const ACTIONS={
+    'Práctica Segura Reconocida':  {pri:'reconocimiento',color:'#10b981',bg:'#ecfdf5',text:'Comportamiento positivo detectado en el equipo.',action:'Mencionar en el stand-up del lunes. Compartir en resumen semanal como ejemplo a seguir. Refuerza la cultura de seguridad activa.'},
+    'Coaching Comportamiento':     {pri:'media',color:'#06b6d4',bg:'#ecfeff',text:'Se detectaron situaciones que requieren retroalimentación directa al colaborador.',action:'Usar el script de conversación generado por el módulo predictivo. Registrar el seguimiento de la acción correctiva en el sistema.'},
+    'Retroalimentación Colaborador':{pri:'media',color:'#3b82f6',bg:'#eff6ff',text:'Observaciones de comportamiento documentadas con retroalimentación aplicada.',action:'Verificar que la retroalimentación haya generado cambio de comportamiento en los siguientes 3 días. Documentar resultado.'},
+    'Desorden y Almacenamiento':   {pri:'media',color:'#f59e0b',bg:'#fffbeb',text:'Condiciones de desorden detectadas que generan riesgo de tropiezo o caída de objetos.',action:'Reforzar estándar 5S en la zona afectada. Proponer recorrido de orden al cierre de turno nocturno con el líder del área.'},
+    'Riesgo de Caída o Corte':     {pri:'alta',color:'#ef4444',bg:'#fef2f2',text:'Riesgo directo de caída de materiales o exposición a superficies cortantes.',action:'Verificar aseguramiento de cargas antes de cada turno. Incluir como punto fijo en el arranque. Asignar responsable de inspección diaria.'},
+    'Uso Inadecuado de Equipo':    {pri:'alta',color:'#8b5cf6',bg:'#f5f3ff',text:'Operación inadecuada de equipo que representa riesgo para el operador y su entorno.',action:'Detener la actividad hasta verificar competencia del operador. Programar reentrenamiento en el uso correcto del equipo afectado.'},
+    'Infraestructura Dañada':      {pri:'media',color:'#ec4899',bg:'#fdf2f8',text:'Elementos físicos de la instalación con daño que puede derivar en incidente.',action:'Levantar orden de trabajo a IP en las próximas 4 horas. Dar seguimiento en 48 hrs. Si el riesgo es inmediato, acordonar la zona.'},
+    'Comportamiento de Riesgo':    {pri:'alta',color:'#f97316',bg:'#fff7ed',text:'Comportamiento individual que representa riesgo directo de lesión.',action:'Conversación individual con el colaborador en las próximas 24 horas. Registrar el feedback en el sistema. Verificar reincidencia en la semana siguiente.'},
+  };
+  const PRI_ORDER={'alta':0,'media':1,'reconocimiento':2};
   const map={};
   data.forEach(d=>{
     if(!d.cat_desc||d.descripcion==='Sin datos')return;
     const bd=d.procesos||'Sin datos';
+    if(bd==='NO ENCONTRADO')return;
     if(!map[bd])map[bd]={};
     if(!map[bd][d.cat_desc])map[bd][d.cat_desc]=[];
     const txt=d.descripcion.trim().replace(/\s+/g,' ');
@@ -835,38 +966,83 @@ function upG3(data){
   const bdTot={};
   Object.entries(map).forEach(([bd,cats])=>{bdTot[bd]=Object.values(cats).reduce((s,a)=>s+a.length,0);});
   const sortedBDs=Object.keys(map).sort((a,b)=>(bdTot[b]||0)-(bdTot[a]||0));
-  const tbody=document.getElementById('g3-tbody');
-  if(!sortedBDs.length){tbody.innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--mu);padding:24px">Sin observaciones para el filtro actual</td></tr>';return;}
+  const container=document.getElementById('g3-tbody').closest('table').parentNode;
+  if(!sortedBDs.length){
+    document.getElementById('g3-tbody').innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--mu);padding:24px">Sin observaciones para el filtro actual</td></tr>';
+    return;
+  }
   let html='';
   sortedBDs.forEach(bd=>{
     const cats=map[bd];
     const top3=Object.entries(cats).sort((a,b)=>b[1].length-a[1].length).slice(0,3);
     const bdColor=BDC[bd]||'#64748b';
     const total=Object.values(cats).reduce((s,a)=>s+a.length,0);
+    const bdId='g3bd'+bd.replace(/[^a-z0-9]/gi,'');
+    // Build obs HTML — full text, no truncation
+    let obsRows='';
     top3.forEach(([cat,descs],rank)=>{
-      const icon=CI[cat]||'📝',cc=CC[cat]||'#94a3b8';
-      const rk=['rk1','rk2','rk3'][rank]||'rk3';
-      // Use template literals — safe with any quotes inside HTML
-      const obsHtml=descs.slice(0,3).map((d,i)=>`<div class="topi"><span class="${rk}">${i+1}</span><span class="topl">${d.length>85?d.slice(0,83)+'…':d}</span></div>`).join('');
-      const extra=descs.length>3?`<span style="font-size:10px;color:var(--acc);display:block;margin-top:3px">+${descs.length-3} más</span>`:'';
-      const bdCell=rank===0
-        ?`<span class="bdtag" style="background:${bdColor}22;color:${bdColor};border:1px solid ${bdColor}55">${bd}</span><div style="font-size:10px;color:var(--mu);margin-top:4px">${total} hallazgo${total!==1?'s':''}</div>`
-        :'';
-      html+=`<tr>
-        <td style="white-space:nowrap;vertical-align:top;padding-top:12px">${bdCell}</td>
-        <td style="vertical-align:top;padding-top:12px">
-          <span class="cchip" style="background:${cc}18;color:${cc};border:1px solid ${cc}44">${icon} ${cat}</span>
-          <div style="font-size:10px;color:var(--mu);margin-top:3px">${descs.length} reporte${descs.length!==1?'s':''}</div>
-        </td>
-        <td style="text-align:center;vertical-align:top;padding-top:14px">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-weight:800;font-size:12px;background:${cc}22;color:${cc}">${descs.length}</span>
-        </td>
-        <td style="vertical-align:top">${obsHtml}${extra}</td>
-      </tr>`;
+      const cc=CC[cat]||'#94a3b8';
+      const icon=CI[cat]||'📝';
+      obsRows+=`<div style="background:var(--bg2);border:1px solid #1c2e44;border-radius:8px;padding:12px;margin-bottom:10px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${cc}18;color:${cc};border:1px solid ${cc}44">${icon} ${cat}</span>
+          <span style="font-size:10px;color:var(--mu)">${descs.length} reporte${descs.length!==1?'s':''}</span>
+        </div>
+        ${descs.map((d,i)=>`<div style="display:flex;gap:8px;padding:5px 0;${i>0?'border-top:1px solid #1c2e44':''}">
+          <span style="font-size:10px;font-weight:700;min-width:16px;color:${cc}">${i+1}</span>
+          <span style="font-size:12px;color:var(--mu2);line-height:1.5;word-break:break-word">${d}</span>
+        </div>`).join('')}
+      </div>`;
     });
-    html+='<tr class="sepr"><td colspan="4"></td></tr>';
+    // Build action HTML
+    const sortedCats=top3.map(([cat])=>cat).sort((a,b)=>(PRI_ORDER[(ACTIONS[a]||{}).pri]??99)-(PRI_ORDER[(ACTIONS[b]||{}).pri]??99));
+    let actionRows='';
+    sortedCats.forEach(cat=>{
+      const act=ACTIONS[cat];
+      if(!act)return;
+      const priLabel={'alta':'Prioridad alta','media':'Prioridad media','reconocimiento':'Reconocimiento sugerido'}[act.pri]||act.pri;
+      actionRows+=`<div style="border-left:3px solid ${act.color};background:${act.bg}22;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:10px">
+        <div style="font-size:10px;font-weight:700;color:${act.color};margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px">${priLabel}</div>
+        <div style="font-size:12px;color:var(--mu2);margin-bottom:6px">${act.text}</div>
+        <div style="font-size:12px;color:var(--tx);font-weight:600">→ ${act.action}</div>
+      </div>`;
+    });
+    html+=`<tr><td colspan="4" style="padding:0 0 12px 0">
+      <div style="border:1px solid #1c2e44;border-radius:10px;overflow:hidden">
+        <div style="background:#112032;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer"
+             onclick="var c=document.getElementById('${bdId}');c.style.display=c.style.display==='none'?'block':'none';this.querySelector('.g3ci').textContent=c.style.display==='none'?'▸':'▾'">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:10px;font-weight:700;padding:2px 9px;border-radius:4px;background:${bdColor}22;color:${bdColor};border:1px solid ${bdColor}44;text-transform:uppercase">${bd}</span>
+            <span style="font-size:13px;font-weight:600;color:var(--tx)">${total} hallazgo${total!==1?'s':''}</span>
+            <span style="font-size:11px;color:var(--mu)">${top3.length} categoría${top3.length!==1?'s':''}</span>
+          </div>
+          <span class="g3ci" style="color:var(--mu);font-size:14px">▾</span>
+        </div>
+        <div id="${bdId}">
+          <div style="display:flex;border-bottom:1px solid #1c2e44;background:#0c1826">
+            <button onclick="g3sw('${bdId}','obs',this)" id="${bdId}obs-btn"
+              style="flex:1;padding:9px 14px;font-size:12px;font-weight:600;color:var(--acc);background:transparent;border:none;border-bottom:2px solid var(--acc);cursor:pointer">
+              Top observaciones
+            </button>
+            <button onclick="g3sw('${bdId}','act',this)" id="${bdId}act-btn"
+              style="flex:1;padding:9px 14px;font-size:12px;font-weight:600;color:var(--mu);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer">
+              Acción propuesta
+            </button>
+          </div>
+          <div id="${bdId}obs" style="padding:14px">${obsRows}</div>
+          <div id="${bdId}act" style="padding:14px;display:none">${actionRows}</div>
+        </div>
+      </div>
+    </td></tr>`;
   });
-  tbody.innerHTML=html;
+  document.getElementById('g3-tbody').innerHTML=html;
+}
+function g3sw(bdId,tab,btn){
+  ['obs','act'].forEach(t=>{
+    document.getElementById(bdId+t).style.display=t===tab?'block':'none';
+    const b=document.getElementById(bdId+t+'-btn');
+    if(b){b.style.color=t===tab?'var(--acc)':'var(--mu)';b.style.borderBottom=t===tab?'2px solid var(--acc)':'2px solid transparent';}
+  });
 }
 
 // ══ G3b ═══════════════════════════════════════════════════════════════════
@@ -891,6 +1067,7 @@ function upT(data){
     if(!TARGETS[email])TARGETS[email]={...info};
     const cnt=ec[email]||0,tgt=info.target||5,pct=Math.min(Math.round(cnt/tgt*100),999);
     const comps=cm[email]||0,engPct=Math.round(comps/tgt*100);
+    if(info.procesos==='NO ENCONTRADO')return;
     rows.push({email,nombre:info.nombre,procesos:info.procesos,count:cnt,target:tgt,pct,comps,engPct});
   });
   rows.sort((a,b)=>b.pct-a.pct);
@@ -955,7 +1132,13 @@ document.getElementById('btn-add').addEventListener('click',function(){
 });
 
 // ══ MASTER UPDATE ═════════════════════════════════════════════════════════
-function updateAll(){const data=getF();updIcons(data);upC1(data);upC2(data);upG3(data);upC3b(data);upT(data);}
+function updateAll(){const data=getF();updIcons(data);upC1(data);upC2(data);upG3(data);upC3b(data);upT(data);
+  // Refresh heatmap and leaderboard if their tab is visible
+  if(document.getElementById('tab-heatmap')&&document.getElementById('tab-heatmap').classList.contains('active'))
+    renderHeatmap(getF());
+  if(document.getElementById('tab-leaderboard')&&document.getElementById('tab-leaderboard').classList.contains('active'))
+    renderLeaderboard(getF());
+}
 
 // ══ TOAST ════════════════════════════════════════════════════════════════
 let _tt;
@@ -1401,6 +1584,285 @@ function setSyncState(state, msg) {
     });
   }
 })();
+
+
+// ── Main tab switcher ────────────────────────────────────────────
+function switchMainTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>{p.style.display='none';p.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  const panel = document.getElementById('tab-'+tab);
+  if(panel){panel.style.display='block';panel.classList.add('active');}
+  if(tab==='heatmap')    renderHeatmap(getF());
+  if(tab==='leaderboard')renderLeaderboard(getF());
+}
+
+// ── Heatmap ──────────────────────────────────────────────────────
+const AREA_LAYOUT=[
+  {id:'MEZANINO',              l:'5%',  t:'5%',  w:'35%', h:'42%'},
+  {id:'BUFFER DE OUTBOUND / STAGE OUT', l:'42%', t:'5%',  w:'30%', h:'30%'},
+  {id:'RKS',                   l:'74%', t:'5%',  w:'23%', h:'30%'},
+  {id:'RECEPCIÓN',             l:'42%', t:'37%', w:'30%', h:'26%'},
+  {id:'PACKING',               l:'74%', t:'37%', w:'23%', h:'26%'},
+  {id:'INVENTARIO',            l:'5%',  t:'50%', w:'17%', h:'20%'},
+  {id:'VESTIDORES',            l:'24%', t:'50%', w:'16%', h:'20%'},
+  {id:'ÁREAS DE CIRCULACIÓN',  l:'5%',  t:'72%', w:'55%', h:'14%'},
+  {id:'ESTACIONAMENTO',        l:'74%', t:'65%', w:'23%', h:'21%'},
+  {id:'ACERAS',                l:'62%', t:'65%', w:'11%', h:'21%'},
+];
+
+function renderHeatmap(data) {
+  const counts={};
+  data.forEach(d=>{if(d.area&&d.area!=='Sin datos')counts[d.area]=(counts[d.area]||0)+1;});
+  const vals=Object.values(counts).filter(v=>v>0);
+  const maxV=vals.length?Math.max(...vals):1;
+  // Dynamic thresholds: HIGH>=60% of max, MED=20-59%, LOW<20%
+  const hiThr=Math.max(1,Math.round(maxV*0.6));
+  const mdThr=Math.max(1,Math.round(maxV*0.2));
+
+  function zoneColor(n){
+    if(!n||n===0) return {bg:'#05101d',border:'#1c2e44',text:'#4d647e'};
+    if(n>=hiThr)  return {bg:'#450a0a',border:'#ef4444',text:'#fca5a5'};
+    if(n>=mdThr)  return {bg:'#431407',border:'#f59e0b',text:'#fcd34d'};
+    return {bg:'#052e16',border:'#10b981',text:'#6ee7b7'};
+  }
+
+  // KPIs
+  const totalAreas=vals.length;
+  const hiAreas=vals.filter(v=>v>=hiThr).length;
+  const topArea=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('heatmap-kpis').innerHTML=[
+    {val:topArea?topArea[0]:'—',lbl:'Área crítica',c:'#ef4444'},
+    {val:topArea?topArea[1]:0,lbl:'Registros en área crítica',c:'#ef4444'},
+    {val:totalAreas,lbl:'Áreas con registros',c:'#f59e0b'},
+    {val:hiAreas,lbl:'Zonas de alta concentración',c:'#e2e8f0'},
+  ].map(k=>`<div style="background:#0c1826;border:1px solid #1c2e44;border-radius:8px;padding:10px 14px;flex:1;min-width:120px">
+    <div style="font-size:20px;font-weight:900;color:${k.c}">${k.val}</div>
+    <div style="font-size:11px;color:#4d647e;margin-top:3px">${k.lbl}</div>
+  </div>`).join('');
+
+  // Floor plan
+  const fp=document.getElementById('floor-plan');
+  fp.innerHTML='';
+  AREA_LAYOUT.forEach(z=>{
+    const n=counts[z.id]||0;
+    const col=zoneColor(n);
+    const shortName=z.id.length>14?z.id.slice(0,12)+'…':z.id;
+    const topCat=getTopCatForArea(data,z.id);
+    const div=document.createElement('div');
+    div.className='area-zone';
+    div.style.cssText=`left:${z.l};top:${z.t};width:${z.w};height:${z.h};background:${col.bg};border-color:${col.border};color:${col.text}`;
+    div.innerHTML=`<div class="az-tip">
+      <b style="color:#e2e8f0">${z.id}</b><br>
+      <span style="color:#7899b5">${n} registro${n!==1?'s':''} · ${n>=hiThr?'alta':n>=mdThr?'media':'baja'} concentración</span>
+      ${topCat?`<br><span style="color:#f59e0b">Top: ${topCat}</span>`:''}
+    </div>
+    <div class="az-name">${shortName}</div>
+    ${n>0?`<div class="az-count">${n}</div><div class="az-label">registros</div>`:'<div class="az-label" style="opacity:.4">sin datos</div>'}`;
+    fp.appendChild(div);
+  });
+
+  // Legend — dynamic
+  const hiPct=Math.round(hiThr/maxV*100), mdPct=Math.round(mdThr/maxV*100);
+  document.getElementById('heatmap-legend').innerHTML=[
+    {c:'#fca5a5',b:'#ef4444',lbl:`Alta (≥${hiThr} registros)`},
+    {c:'#fde68a',b:'#f59e0b',lbl:`Media (${mdThr}–${hiThr-1} registros)`},
+    {c:'#bbf7d0',b:'#10b981',lbl:`Baja (1–${mdThr-1} registro${mdThr-1!==1?'s':''})`},
+    {c:'#112032',b:'#1c2e44',lbl:'Sin datos'},
+  ].map(l=>`<div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#7899b5">
+    <div style="width:12px;height:12px;border-radius:3px;background:${l.c};border:1px solid ${l.b};flex-shrink:0"></div>
+    ${l.lbl}
+  </div>`).join('');
+
+  // Ranking
+  const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  const rankEl=document.getElementById('heatmap-ranking');
+  rankEl.innerHTML=`<div style="font-size:11px;font-weight:700;color:#7899b5;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Ranking por área</div>`+
+    sorted.map(([area,n],i)=>{
+      const col=zoneColor(n);
+      const pct=Math.round(n/maxV*100);
+      return `<div style="margin-bottom:9px">
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px">
+          <span style="color:${col.text};font-weight:600">${i+1}. ${area.length>20?area.slice(0,18)+'…':area}</span>
+          <span style="color:${col.border};font-weight:700">${n}</span>
+        </div>
+        <div style="height:4px;background:#1c2e44;border-radius:2px;overflow:hidden">
+          <div style="height:100%;width:${pct}%;background:${col.border};border-radius:2px"></div>
+        </div>
+      </div>`;
+    }).join('')+
+    `<div style="margin-top:12px;padding-top:10px;border-top:1px solid #1c2e44;font-size:11px;color:#4d647e;line-height:1.5">
+      Umbrales dinámicos. Alta ≥${hiThr}  · Media ≥${mdThr}. Se recalculan con cada cambio de filtro.
+    </div>`;
+}
+
+function getTopCatForArea(data,area){
+  const cats={};
+  data.forEach(d=>{if(d.area===area&&d.cat_desc)cats[d.cat_desc]=(cats[d.cat_desc]||0)+1;});
+  const top=Object.entries(cats).sort((a,b)=>b[1]-a[1])[0];
+  return top?top[0]:null;
+}
+
+// ── Leaderboard ──────────────────────────────────────────────────
+function renderLeaderboard(data) {
+  const ec={}, cm={};
+  data.forEach(d=>{
+    if(!d.email||d.email==='Sin datos')return;
+    ec[d.email]=(ec[d.email]||0)+1;
+    if(d.es_comp) cm[d.email]=(cm[d.email]||0)+1;
+  });
+  const byEmail={};
+  data.forEach(d=>{if(d.email&&d.email!=='Sin datos'&&d.fecha_date){
+    if(!byEmail[d.email])byEmail[d.email]=[];
+    byEmail[d.email].push(d.fecha_date);
+  }});
+  function calcRacha(email){
+    const dates=byEmail[email]||[];
+    if(!dates.length)return 0;
+    const unique=[...new Set(dates.map(d=>d.toDateString()))].sort((a,b)=>new Date(b)-new Date(a));
+    let racha=1,ref=new Date(unique[0]);
+    for(let i=1;i<unique.length;i++){
+      const prev=new Date(unique[i]);
+      if(Math.round((ref-prev)/(864e5))===1){racha++;ref=prev;}else break;
+    }
+    return racha;
+  }
+  const BDC2={SHE:'#f59e0b',LP:'#3b82f6',OB:'#10b981',ICQA:'#8b5cf6','I.P':'#06b6d4',Training:'#ec4899'};
+  const relEmails=new Set([...Object.keys(ec),...Object.entries(TARGETS).filter(([,i])=>i.procesos&&i.procesos!=='NO ENCONTRADO').map(([e])=>e)]);
+  const rows=[];
+  relEmails.forEach(email=>{
+    const info=TARGETS[email];
+    if(!info||info.procesos==='NO ENCONTRADO')return;
+    const cnt=ec[email]||0,tgt=info.target||5,comps=cm[email]||0;
+    const cumPct=Math.min(Math.round(cnt/tgt*100),999);
+    const adnPct=cnt>0?Math.round(comps/cnt*100):0;
+    const racha=calcRacha(email);
+    let nivel,nc;
+    if(cumPct>=100&&adnPct>=70){nivel='Maestro SHE';nc='#f59e0b';}
+    else if(cumPct>=100){nivel='Guardián';nc='#10b981';}
+    else if(cumPct>=50){nivel='Explorador';nc='#3b82f6';}
+    else{nivel='Centinela';nc='#ef4444';}
+    rows.push({email,nombre:info.nombre,procesos:info.procesos,cnt,tgt,cumPct,comps,adnPct,racha,nivel,nc});
+  });
+  rows.sort((a,b)=>b.adnPct!==a.adnPct?b.adnPct-a.adnPct:b.cumPct-a.cumPct);
+
+  // ── KPIs ─────────────────────────────────────────────────────
+  const totalReg=rows.reduce((s,r)=>s+r.cnt,0);
+  const teamADN=totalReg>0?Math.round(rows.reduce((s,r)=>s+r.comps,0)/totalReg*100):0;
+  const topLevel=rows.filter(r=>r.nivel==='Guardián'||r.nivel==='Maestro SHE').length;
+  document.getElementById('lb-kpis').innerHTML=[
+    {val:rows.length,     lbl:'Líderes en ranking',    c:'#e2e8f0'},
+    {val:totalReg,        lbl:'Registros totales',      c:'#10b981'},
+    {val:teamADN+'%',     lbl:'ADN Meli SHE equipo',    c:'#06b6d4'},
+    {val:topLevel,        lbl:'Guardián o superior',    c:'#f59e0b'},
+  ].map(k=>`<div style="background:#0c1826;border:1px solid #1c2e44;border-radius:8px;padding:10px 14px;flex:1;min-width:110px">
+    <div style="font-size:20px;font-weight:900;color:${k.c}">${k.val}</div>
+    <div style="font-size:11px;color:#4d647e;margin-top:3px">${k.lbl}</div>
+  </div>`).join('');
+
+  // ── PODIUM — top 3 ───────────────────────────────────────────
+  const top3=rows.slice(0,3);
+  const podCfg=[
+    {pos:0,cls:'p1',medal:'🥇',glowColor:'#f59e0b',baseH:56,rankLabel:'1er lugar'},
+    {pos:1,cls:'p2',medal:'🥈',glowColor:'#94a3b8',baseH:36,rankLabel:'2do lugar'},
+    {pos:2,cls:'p3',medal:'🥉',glowColor:'#cd7f32',baseH:20,rankLabel:'3er lugar'},
+  ];
+
+  function podiumCard(r,cfg){
+    if(!r) return `<div class="podium-col ${cfg.cls}">
+      <div class="podium-card ${cfg.cls}" style="justify-content:center;min-height:180px">
+        <div style="font-size:28px">${cfg.medal}</div>
+        <div style="font-size:12px;color:#4d647e;margin-top:8px">Sin datos</div>
+      </div>
+      <div class="podium-base"></div></div>`;
+    const initials=r.nombre.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+    const pc=BDC2[r.procesos]||'#64748b';
+    const rachaColor=r.racha>=5?'#10b981':r.racha>=2?'#f59e0b':'#4d647e';
+    const rachaText=r.racha>0?`${r.racha} día${r.racha!==1?'s de racha':''}  activo`:'Sin racha activa';
+    return `<div class="podium-col ${cfg.cls}">
+      <div class="podium-card ${cfg.cls}">
+        <div class="podium-glow" style="background:${cfg.glowColor}"></div>
+        <div class="podium-rank">${cfg.rankLabel}</div>
+        <div class="podium-medal">${cfg.medal}</div>
+        <div class="podium-avatar" style="background:${r.nc}22;color:${r.nc};border-color:${r.nc}">${initials}</div>
+        <div class="podium-name">${r.nombre}</div>
+        <div class="podium-area">
+          <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${pc}22;color:${pc};border:1px solid ${pc}44">${r.procesos}</span>
+        </div>
+        <span class="podium-nivel" style="background:${r.nc}22;color:${r.nc};border-color:${r.nc}55">${r.nivel}</span>
+        <div class="podium-stats">
+          <div class="podium-stat">
+            <div class="podium-stat-val" style="color:${r.nc}">${r.cumPct}%</div>
+            <div class="podium-stat-lbl">cumplimiento</div>
+          </div>
+          <div class="podium-stat">
+            <div class="podium-stat-val" style="color:#06b6d4">${r.adnPct}%</div>
+            <div class="podium-stat-lbl">ADN Meli SHE</div>
+          </div>
+          <div class="podium-stat">
+            <div class="podium-stat-val" style="color:#e2e8f0">${r.cnt}</div>
+            <div class="podium-stat-lbl">registros</div>
+          </div>
+        </div>
+        <div class="podium-pbar"><div class="podium-pfill" style="width:${Math.min(r.cumPct,100)}%;background:${r.nc}"></div></div>
+        <div class="podium-pct" style="color:${r.nc}">${r.cnt} / ${r.tgt} reportes</div>
+        <div class="podium-racha">
+          <span class="podium-racha-dot" style="background:${rachaColor}"></span>
+          <span style="color:${rachaColor}">${rachaText}</span>
+        </div>
+      </div>
+      <div class="podium-base" style="height:${cfg.baseH}px"></div>
+    </div>`;
+  }
+
+  document.getElementById('lb-top3').innerHTML=
+    `<div class="podium-wrap">${podCfg.map(cfg=>podiumCard(top3[cfg.pos],cfg)).join('')}</div>`;
+
+  // ── RANKING TABLE — positions 4+ only ───────────────────────
+  const rest=rows.slice(3);
+  if(!rest.length){
+    document.getElementById('lb-tbody').innerHTML=
+      `<tr><td colspan="8" style="text-align:center;padding:20px;color:#4d647e;font-size:13px">
+        Todos los líderes están en el podio
+      </td></tr>`;
+    return;
+  }
+
+  // Section header
+  const headerRow=`<tr>
+    <td colspan="8" style="padding:12px 14px 8px;font-size:11px;font-weight:700;color:#4d647e;
+      text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid #1c2e44;
+      background:#080e18">
+      Clasificación general — posiciones 4+
+    </td>
+  </tr>`;
+
+  document.getElementById('lb-tbody').innerHTML=headerRow+rest.map((r,i)=>{
+    const pc=BDC2[r.procesos]||'#64748b';
+    const pos=i+4;
+    const rachaHtml=r.racha>0
+      ?`<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${r.racha>=3?'#10b981':'#f59e0b'};margin-right:4px"></span>${r.racha} día${r.racha!==1?'s':''}`
+      :`<span style="color:#4d647e">—</span>`;
+    return `<tr style="border-bottom:1px solid #1c2e44">
+      <td style="padding:10px 12px;text-align:center;font-size:13px;color:#4d647e;font-weight:700">#${pos}</td>
+      <td style="padding:10px 12px">
+        <div style="font-weight:700;color:#e2e8f0">${r.nombre}</div>
+        <div style="font-size:11px;color:#4d647e">${r.email}</div>
+      </td>
+      <td style="padding:10px 12px"><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${pc}22;color:${pc};border:1px solid ${pc}44">${r.procesos}</span></td>
+      <td style="padding:10px 12px;font-weight:700;color:#e2e8f0">${r.cnt} / ${r.tgt}</td>
+      <td style="padding:10px 12px">
+        <div style="height:4px;background:#1c2e44;border-radius:2px;overflow:hidden;width:90px;margin-bottom:3px">
+          <div style="height:100%;width:${Math.min(r.cumPct,100)}%;background:${r.nc};border-radius:2px"></div>
+        </div>
+        <span style="font-size:11px;font-weight:700;color:${r.nc}">${r.cumPct}%</span>
+      </td>
+      <td style="padding:10px 12px;font-weight:700;color:#06b6d4">${r.adnPct}%</td>
+      <td style="padding:10px 12px"><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${r.nc}22;color:${r.nc};border:1px solid ${r.nc}44">${r.nivel}</span></td>
+      <td style="padding:10px 12px;font-size:11px;color:#7899b5">${rachaHtml}</td>
+    </tr>`;
+  }).join('');
+}
 
 </script>
 </html>
