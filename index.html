@@ -141,6 +141,7 @@ tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
 .tab-btn.active{color:#e2e8f0;border-bottom-color:#f59e0b}
 .tab-panel{display:none}
 main.tab-panel.active{display:grid}
+div.tab-panel.active{display:block}
 div
 /* ── Heatmap ── */
 .area-zone{position:absolute;border-radius:6px;cursor:pointer;transition:all .18s;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px;border:1px solid}
@@ -1062,11 +1063,13 @@ function upT(data){
   const vBD=document.getElementById('f-bd').value;
   const ec={},cm={};
   data.forEach(d=>{if(d.email&&d.email!=='Sin datos'){ec[d.email]=(ec[d.email]||0)+1;if(d.es_comp)cm[d.email]=(cm[d.email]||0)+1;}});
-  const relEmails=new Set([...Object.keys(ec),...Object.entries(TARGETS).filter(([,i])=>!vBD||i.procesos===vBD).map(([e])=>e)]);
+  // Solo mostrar en G4 personas que estén en Liderazgo (Libro 3)
+  const relEmails=new Set(Object.entries(TARGETS).filter(([,i])=>!vBD||i.procesos===vBD).map(([e])=>e));
   const rows=[];
   relEmails.forEach(email=>{
     const info=TARGETS[email]||{nombre:email.split('@')[0],procesos:'—',area:'—',target:5};
-    if(!TARGETS[email])TARGETS[email]={...info};
+    // Solo procesar emails que estén en Liderazgo
+    if(!TARGETS[email])return;
     const cnt=ec[email]||0,tgt=info.target||5,pct=Math.min(Math.round(cnt/tgt*100),999);
     const comps=cm[email]||0,engPct=Math.round(comps/tgt*100);
     if(info.procesos==='NO ENCONTRADO')return;
